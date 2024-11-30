@@ -1,4 +1,4 @@
- import {
+import {
   Body,
   Button,
   Container,
@@ -41,8 +41,8 @@ export const InvoiceCreatedEmail = ({
           </Button>
         </Section>
         <Hr style={hr} />
-        <Link href="https://sabarish.dev" style={reportLink}>
-          Sabarish
+        <Link href="https://spacejelly.dev" style={reportLink}>
+          Space Jelly
         </Link>
       </Container>
     </Body>

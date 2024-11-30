@@ -1,6 +1,6 @@
 {
-  "id": "08da789f-2c33-4bf2-9dd6-6d2b96c62d69",
-  "prevId": "1ff28576-a3e2-4e12-b79a-bc0580130196",
+  "id": "e34a1ab5-af63-4fd0-b568-a41a21f54ddb",
+  "prevId": "6965323b-f7c6-4ee2-88ba-e3141eaec63e",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -50,29 +50,18 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
+      "uniqueConstraints": {}
     }
   },
   "enums": {
     "public.status": {
       "name": "status",
       "schema": "public",
-      "values": [
-        "open",
-        "paid",
-        "void",
-        "uncollectible"
-      ]
+      "values": ["open", "paid", "void", "uncollectible"]
     }
   },
   "schemas": {},
   "sequences": {},
-  "roles": {},
-  "policies": {},
-  "views": {},
   "_meta": {
     "columns": {},
     "schemas": {},

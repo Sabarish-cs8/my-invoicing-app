@@ -1,9 +1,56 @@
 {
-  "id": "3fa5d893-b4e9-4641-b445-2c5b6015c913",
-  "prevId": "e34a1ab5-af63-4fd0-b568-a41a21f54ddb",
+  "id": "bca25b23-3bdb-41b4-a8bb-4c7088c67ee4",
+  "prevId": "14a27410-e248-4c94-96c1-afab690b1d31",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+    "public.customers": {
+      "name": "customers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "createTs": {
+          "name": "createTs",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "organizationId": {
+          "name": "organizationId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "public.invoices": {
       "name": "invoices",
       "schema": "",
@@ -39,6 +86,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "organizationId": {
+          "name": "organizationId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "customerId": {
           "name": "customerId",
           "type": "integer",
@@ -55,10 +108,10 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "invoices_customerId_invoices_id_fk": {
-          "name": "invoices_customerId_invoices_id_fk",
+        "invoices_customerId_customers_id_fk": {
+          "name": "invoices_customerId_customers_id_fk",
           "tableFrom": "invoices",
-          "tableTo": "invoices",
+          "tableTo": "customers",
           "columnsFrom": ["customerId"],
           "columnsTo": ["id"],
           "onDelete": "no action",
