@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import { and, eq, isNull } from "drizzle-orm";
+import {  eq } from "drizzle-orm";
 import { CirclePlus } from "lucide-react";
 
 import { db } from "@/db";
@@ -21,13 +21,13 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default async function Home() {
-  const { userId, orgId } = auth();
+  const { userId } = auth();
 
   if (!userId) return;
 
   // Displaying all invoices for public demo
 
-  let results: Array<{
+  const results: Array<{
     invoices: typeof Invoices.$inferSelect;
     customers: typeof Customers.$inferSelect;
   }> = await db

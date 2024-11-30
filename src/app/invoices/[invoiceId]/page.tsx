@@ -21,7 +21,7 @@ export default async function InvoicePage({
 
   // Displaying all invoices for public demo
 
-  let [result]: Array<{
+  const [result]: Array<{
     invoices: typeof Invoices.$inferSelect;
     customers: typeof Customers.$inferSelect;
   }> = await db
