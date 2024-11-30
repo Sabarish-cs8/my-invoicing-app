@@ -264,12 +264,12 @@ export default function SignInPage() {
           </SignIn.Strategy>
           <p className="text-center text-sm text-neutral-500">
             Don&apos;t have an account?{" "}
-            <a
+            <Link
               href="/sign-up"
               className="rounded px-1 py-0.5 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:bg-neutral-100"
             >
               Sign up
-            </a>
+            </Link>
           </p>
         </SignIn.Step>
       </SignIn.Root>
