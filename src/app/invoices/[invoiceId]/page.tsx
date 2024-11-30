@@ -6,12 +6,11 @@ import { db } from "@/db";
 import { Customers, Invoices } from "@/db/schema";
 import Invoice from "./invoice";
 
-// If you're using Next.js App Directory with dynamic routing
-interface InvoicePageProps {
+export default async function InvoicePage({
+  params,
+}: {
   params: { invoiceId: string };
-}
-
-export default async function InvoicePage({ params }: InvoicePageProps) {
+}) {
   const { userId, orgId } = auth();
 
   if (!userId) return;
