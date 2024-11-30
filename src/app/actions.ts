@@ -58,7 +58,7 @@ export async function createAction(formData: FormData) {
     });
 
   await resend.emails.send({
-    from: "Space Jelly <info@test.spacejelly.dev>",
+    from: "sabarish <info@test.sabarish.dev>",
     to: [email],
     subject: "You Have a New Invoice",
     react: InvoiceCreatedEmail({ invoiceId: results[0].id }),
