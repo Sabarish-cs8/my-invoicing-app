@@ -6,9 +6,12 @@ import { db } from "@/db";
 import { Customers, Invoices } from "@/db/schema";
 import Invoice from "./invoice";
 
-export default async function InvoicePage({
-  params,
-}: { params: { invoiceId: string } }) {
+// If you're using Next.js App Directory with dynamic routing
+interface InvoicePageProps {
+  params: { invoiceId: string };
+}
+
+export default async function InvoicePage({ params }: InvoicePageProps) {
   const { userId, orgId } = auth();
 
   if (!userId) return;
@@ -19,8 +22,7 @@ export default async function InvoicePage({
     throw new Error("Invalid Invoice ID");
   }
 
-  // Displaying all invoices for public demo
-
+  // Fetching invoices and customers
   const [result]: Array<{
     invoices: typeof Invoices.$inferSelect;
     customers: typeof Customers.$inferSelect;
@@ -29,30 +31,6 @@ export default async function InvoicePage({
     .from(Invoices)
     .innerJoin(Customers, eq(Invoices.customerId, Customers.id))
     .limit(1);
-
-  // if (orgId) {
-  //   [result] = await db
-  //     .select()
-  //     .from(Invoices)
-  //     .innerJoin(Customers, eq(Invoices.customerId, Customers.id))
-  //     .where(
-  //       and(eq(Invoices.id, invoiceId), eq(Invoices.organizationId, orgId)),
-  //     )
-  //     .limit(1);
-  // } else {
-  //   [result] = await db
-  //     .select()
-  //     .from(Invoices)
-  //     .innerJoin(Customers, eq(Invoices.customerId, Customers.id))
-  //     .where(
-  //       and(
-  //         eq(Invoices.id, invoiceId),
-  //         eq(Invoices.userId, userId),
-  //         isNull(Invoices.organizationId),
-  //       ),
-  //     )
-  //     .limit(1);
-  // }
 
   if (!result) {
     notFound();
