@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { db } from "@/db";
 import { Customers, Invoices } from "@/db/schema";
-import Invoice from "./Invoice";
+import Invoice from "./invoice";
 
 export default async function InvoicePage({
   params,
