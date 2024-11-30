@@ -8,7 +8,7 @@ const Footer = () => {
           Invoicipedia &copy; {new Date().getFullYear()}
         </p>
         <p className="text-sm">
-          Created by Colby Fayock with Next.js, Xata, and Clerk
+          Created by Sabarish with Next.js, Xata, and Clerk
         </p>
       </Container>
     </footer>
